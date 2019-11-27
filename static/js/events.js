@@ -17,25 +17,27 @@ function reset() {
 //Challenge 2: Cat Generator
 
 const apiKey = '1a427fc4-7c99-42d5-81fe-3b730c4712c0';
-const url = 'https://api.thecatapi.com/v1/images/search?mime_types=gif';
+const url = 'https://api.thecatapi.com/v1/images/search?breeds'//?mime_types=gif'; trying to get random kitty
 const goKey = {
     headers: new Headers({
         "X-Api-Key": apiKey})
     };
 
 function GetKitty() {
-    $('.btn-success').on('click', function() {
-    fetch(url, goKey)
-    .then(response => response.json)
-    .then(responseJson => displayKitty(responseJson));
-    console.log(responseJson);
+    $('.btn-success').on('click', function () {
+        fetch(url, goKey)
+            .then(response => response.json())
+            .then(responseJson => {
+                console.log(responseJson);
+                displayKitty(responseJson)
+            });
     })
 }
 
 function displayKitty(responseJson) {
     let result = "";
-    for(let i = 0; i < responseJson.message.length; i++) {
-        result += `<img src="${responseJson.message[i]}" class="cat-img" >`;
+    for(let i = 0; i < responseJson.length; i++) {
+        result += `<img src="${responseJson[i]}" class="cat-img" >`;
     }
     $('.flex-box-container').append(result);
 }
@@ -46,4 +48,4 @@ function findKitties() {
 
 GetKitty();
 
-console.log(JSON.parse(responseJson)[i]);
+
