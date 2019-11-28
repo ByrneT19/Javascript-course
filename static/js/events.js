@@ -8,10 +8,12 @@ function ageInDays() {
     h1.setAttribute('id', 'anneesDansJours');
     h1.appendChild(textAnswer);
     document.getElementById('flex-box-result').appendChild(h1);
+    $('#flex-box-result').show();
 }
 
 function reset() {
     document.getElementById('anneesDansJours').remove();
+    $('#flex-box-result').hide();
 }
 
 //Challenge 2: Cat Generator
@@ -40,8 +42,9 @@ function displayKitty(responseJson) {
     let result = "";
     for(let i = 0; i < responseJson.length; i++) {
         result += `<img src="${responseJson[i].url}" class="cat-img">`;
+        console.log(responseJson[i].url)
     }
-    $('.flex-box-container').append(result);
+    $('.flex-box-container-2').append(result);
 }
 
 function findKitties() {
@@ -50,6 +53,11 @@ function findKitties() {
 
 GetKitty();
 
-
+/*function generateCat() {
+    var image = document.createElement('img');
+    let div = document.getElementById('flex-cat-gen');
+    image.src = url + goKey;
+    div.appendChild(image);
+}*/
 
 
