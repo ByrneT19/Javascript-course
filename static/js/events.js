@@ -39,7 +39,7 @@ function GetKitty() {
 function displayKitty(responseJson) {
     let result = "";
     for(let i = 0; i < responseJson.length; i++) {
-        result += `<img src="${responseJson.url[i]}" class="cat-img" >`;
+        result += `<img src="${responseJson[i].url}" class="cat-img">`;
     }
     $('.flex-box-container').append(result);
 }
@@ -50,9 +50,6 @@ function findKitties() {
 
 GetKitty();
 
-/*I think I'm really close. I think I need to retrieve the url from the object being returned since it now works - 
-it seemed to start working after I put a preventDefault in the fetch function - I don't know if that is what did
-it though as I've also changed the url. I also get a 204 in my network response - not sure what this is reffering to?
-*/
+
 
 
